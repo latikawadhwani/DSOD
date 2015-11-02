@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AlertService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59926/AlertService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59926/AlertService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59926/AlertService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAlertService_storeUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:storeUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IAlertService_storeUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:storeUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlertService_sendAlerts_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendAlerts" />
+  </wsdl:message>
+  <wsdl:message name="IAlertService_sendAlerts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendAlertsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlertService_sendMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendMail" />
+  </wsdl:message>
+  <wsdl:message name="IAlertService_sendMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendMailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAlertService">
+    <wsdl:operation name="storeUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlertService/storeUserDetails" message="tns:IAlertService_storeUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlertService/storeUserDetailsResponse" message="tns:IAlertService_storeUserDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendAlerts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlertService/sendAlerts" message="tns:IAlertService_sendAlerts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlertService/sendAlertsResponse" message="tns:IAlertService_sendAlerts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlertService/sendMail" message="tns:IAlertService_sendMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlertService/sendMailResponse" message="tns:IAlertService_sendMail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAlertService" type="tns:IAlertService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="storeUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IAlertService/storeUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendAlerts">
+      <soap:operation soapAction="http://tempuri.org/IAlertService/sendAlerts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMail">
+      <soap:operation soapAction="http://tempuri.org/IAlertService/sendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlertService">
+    <wsdl:port name="BasicHttpBinding_IAlertService" binding="tns:BasicHttpBinding_IAlertService">
+      <soap:address location="http://localhost:59926/AlertService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
